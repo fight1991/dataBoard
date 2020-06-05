@@ -12,6 +12,7 @@
     "dev": "npm run serve"
   },
   "dependencies": {
+    "@jiaminghi/data-view": "^2.8.4",
     "D": "^1.0.0",
     "core-js": "^3.4.4",
     "echarts": "^4.6.0",
