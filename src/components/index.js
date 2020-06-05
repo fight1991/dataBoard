@@ -1,5 +1,5 @@
 import Pagination from './pagination'
-const Echart = () => import(/* webpackChunkName: "echarts" */ './global/echart')
+const Echart = () => import(/* webpackChunkName: "echarts" */ './echart')
 
 export default {
   install (Vue) {

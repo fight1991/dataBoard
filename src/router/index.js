@@ -1,6 +1,6 @@
 import VueRouter from 'vue-router'
 import Error from '@/views/error'
-import DataView from '@/views/dashBoard'
+import DataView from '@/views/pages'
 const routes = [
   {
     path: '/',
