@@ -10,7 +10,7 @@
           </div>
           <div class="water-level-chart">
             <div class="text pd10">今日发电</div>
-            <dv-decoration-9 :color="['red','yellow']" :dur="generDur" style="width:200px;height:200px;">66</dv-decoration-9>
+            <dv-decoration-9 :dur="generDur" style="width:200px;height:200px;">66</dv-decoration-9>
           </div>
           <div class="water-level-chart">
             <div class="text pd10">本月发电</div>
@@ -22,7 +22,7 @@
           </div>
           <div class="water-level-chart">
             <div class="text pd10">累计收益</div>
-            <dv-decoration-9 :dur="generDur" style="width:200px;height:200px;">66</dv-decoration-9>
+            <dv-decoration-9 :dur="generDur" :color="['#67C23A','green']" style="width:200px;height:200px;">66</dv-decoration-9>
           </div>
         </div>
         <div>
@@ -37,11 +37,14 @@
 export default {
   data () {
     return {
-      generDur: 8,
+      generDur: 10,
       power: {
         data: [30],
         shape: 'round',
-        formatter: '{value}kw/h'
+        formatter: '{value}kw/h',
+        colors: ['green'],
+        waveNum: 6,
+        waveHeight: 10
       },
       list: {
         header: ['列1', '列2', '列3'],
