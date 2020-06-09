@@ -48,14 +48,6 @@ export default {
           grid: {
             height: '50%'
           },
-          // dataZoom: [{
-          //   type: 'slider',
-          //   show: true,
-          //   xAxisIndex: [0],
-          //   top: '80%',
-          //   start: 0,
-          //   end: 70
-          // }],
           yAxis: {
             type: 'value',
             splitLine: {
@@ -93,11 +85,17 @@ export default {
           ]
         },
         elec: { // 柱状图
+          textStyle: {
+            color: '#fff'
+          },
           legend: {
             bottom: 10,
-            data: [],
+            data: ['feedin', 'generation', 'loads', 'gridConsumption'],
             formatter: name => {
               return this.$t('chart.' + name)
+            },
+            textStyle: {
+              color: '#fff'
             }
           },
           tooltip: {
@@ -107,43 +105,54 @@ export default {
               return this.$t('chart.' + seriesName) + '<br/>' + marker + name + ' : ' + value
             }
           },
-          // dataset: {
-          //   dimensions: ['axis', 'generation', 'feed-in', 'loads', 'grid consumption'],
-          //   source: [
-          //     { axis: '01', 'generation': 43.3, 'feed-in': 85.8, 'loads': 93.7, 'grid consumption': 93.7 },
-          //     { axis: '02', 'generation': 83.1, 'feed-in': 73.4, 'loads': 55.1, 'grid consumption': 93.7 },
-          //     { axis: '03', 'generation': 86.4, 'feed-in': 65.2, 'loads': 82.5, 'grid consumption': 93.7 },
-          //     { axis: '04', 'generation': 72.4, 'feed-in': 53.9, 'loads': 39.1, 'grid consumption': 93.7 },
-          //     { axis: '05', 'generation': 73.4, 'feed-in': 53.9, 'loads': 39.1, 'grid consumption': 93.7 },
-          //     { axis: '06', 'generation': 72.4, 'feed-in': 53.9, 'loads': 39.1, 'grid consumption': 93.7 },
-          //     { axis: '07', 'generation': 76.4, 'feed-in': 53.9, 'loads': 39.1, 'grid consumption': 93.7 },
-          //     { axis: '08', 'generation': 72.4, 'feed-in': 53.9, 'loads': 39.1, 'grid consumption': 93.7 }
-          //   ]
-          // },
           xAxis: {
             type: 'category',
-            data: []
+            axisLine: {
+              lineStyle: {
+                color: '#fff'
+              }
+            }
           },
           grid: [{
             height: '55%'
           }],
-          dataZoom: [{
-            type: 'slider',
-            show: true,
-            xAxisIndex: [0],
-            top: '80%',
-            start: 0,
-            end: 70
-          }],
-          yAxis: {},
+          yAxis: {
+            axisLine: {
+              lineStyle: {
+                color: '#fff'
+              }
+            },
+            splitLine: {
+              lineStyle: {
+                color: ['#fff'],
+                type: 'dotted',
+                opacity: 0.4
+              }
+            }
+          },
           // Declare several bar series, each will be mapped
           // to a column of dataset.source by default.
           series: [
-            // {
-            //   type: 'bar',
-            //   name: 'feed-in',
-            //   data: []
-            // }
+            {
+              type: 'bar',
+              name: 'feedin',
+              data: [{ index: 1, value: 12 }, { index: 2, value: 34 }, { index: 3, value: 58 }]
+            },
+            {
+              type: 'bar',
+              name: 'generation',
+              data: [{ index: 1, value: 54 }, { index: 2, value: 89 }, { index: 3, value: 90 }]
+            },
+            {
+              type: 'bar',
+              name: 'loads',
+              data: [{ index: 1, value: 33 }, { index: 2, value: 66 }, { index: 3, value: 110 }]
+            },
+            {
+              type: 'bar',
+              name: 'gridConsumption',
+              data: [{ index: 1, value: 55 }, { index: 2, value: 33 }, { index: 3, value: 100 }]
+            }
           ]
         }
       }

@@ -1,39 +1,31 @@
 <template>
   <dv-full-screen-container>
     <dv-border-box-11 title="监控系统">
-      <div class="all-container">
-      <!-- 当前功率 -->
-        <div class="plant-status flex-around">
-          <div class="water-level-chart">
-            <div class="text pd10">当前功率</div>
-            <dv-water-level-pond class="power-img" :config="power" style="width:200px;height:200px" />
+      <div class="out-container">
+        <div class="main-header flex">
+          <div class="main-left">
+            <power-status/>
           </div>
-          <div class="water-level-chart">
-            <div class="text pd10">今日发电</div>
-            <dv-decoration-9 :dur="generDur" style="width:200px;height:200px;">66</dv-decoration-9>
-          </div>
-          <div class="water-level-chart">
-            <div class="text pd10">本月发电</div>
-            <dv-decoration-9 :dur="generDur" style="width:200px;height:200px;">66</dv-decoration-9>
-          </div>
-          <div class="water-level-chart">
-            <div class="text pd10">累计发电</div>
-            <dv-decoration-9 :dur="generDur" style="width:200px;height:200px;">66</dv-decoration-9>
-          </div>
-          <div class="water-level-chart">
-            <div class="text pd10">累计收益</div>
-            <dv-decoration-9 :dur="generDur" :color="['#67C23A','green']" style="width:200px;height:200px;">66</dv-decoration-9>
+          <div class="main-right">
+            <device-status/>
           </div>
         </div>
-        <!-- <div class="tableList">
-          <dv-scroll-board :config="list" style="width:auto;height:220px" />
+        <div class="main-container">
+          <div class="chart-power"></div>
+          <div class="chart-ger"></div>
+          <div class="device-list"></div>
+        </div>
+        <!-- <div class="all-container">
+          <div class="tableList">
+            <dv-scroll-board :config="list" style="width:auto;height:220px" />
+          </div>
+          <div class="chart-view">
+            <el-echart :datas="echartData['power']" height="300px"></el-echart>
+          </div>
+          <div class="chart-view">
+            <el-echart :datas="echartData['elec']" height="300px"></el-echart>
+          </div>
         </div> -->
-        <div class="chart-view">
-          <el-echart :datas="echartData['power']" height="300px"></el-echart>
-        </div>
-        <div class="chart-view">
-          <el-echart :datas="echartData['elec']" height="300px"></el-echart>
-        </div>
       </div>
     </dv-border-box-11>
   </dv-full-screen-container>
@@ -41,8 +33,14 @@
 
 <script>
 import echartData from './echartData'
+import powerStatus from './powerStatus'
+import deviceStatus from './deviceStatus'
 export default {
   mixins: [echartData],
+  components: {
+    powerStatus,
+    deviceStatus
+  },
   data () {
     return {
       generDur: 10,
@@ -78,26 +76,16 @@ export default {
 }
 </script>
 <style lang="less" scoped>
-#dv-full-screen-container {
-  // background-color: pink;
-}
-.all-container {
+.out-container {
   padding: 80px 20px 20px;
-}
-.power-img {
-  // border: 10px solid #19c3eb;
-  border-radius: 50%;
-}
-.water-level-chart {
-  background-color: rgba(6,30,93,.5);
-  border-top: 2px solid rgba(1,153,209,.5);
-  font-size: 20px;
-  text-align: center;
-  .text span {
-    // font-size: 30px;
-    font-weight: 700;
-    color: #58a1ff;
-    margin-bottom: -5px;
+  .main-header {
+    height: 100px;
+    .main-left {
+      width: 60%;
+    }
+    .main-right {
+      width: 40%;
+    }
   }
 }
 </style>
