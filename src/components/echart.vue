@@ -30,8 +30,7 @@ export default {
   },
   computed: {
     ...mapState({
-      lang: state => state.lang,
-      currentTab: state => state.tab.currentTab
+      lang: state => state.lang
     }),
     hasData () { // 是否有数据
       if (this.datas.series && this.datas.series.length > 0) {
@@ -49,9 +48,6 @@ export default {
       deep: true
     },
     lang: function () {
-      this.asyncInit()
-    },
-    currentTab: function () {
       this.asyncInit()
     }
   },

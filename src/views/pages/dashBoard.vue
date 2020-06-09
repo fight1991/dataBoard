@@ -25,8 +25,14 @@
             <dv-decoration-9 :dur="generDur" :color="['#67C23A','green']" style="width:200px;height:200px;">66</dv-decoration-9>
           </div>
         </div>
-        <div>
-          <dv-scroll-board :config="list" style="width:500px;height:220px" />
+        <!-- <div class="tableList">
+          <dv-scroll-board :config="list" style="width:auto;height:220px" />
+        </div> -->
+        <div class="chart-view">
+          <el-echart :datas="echartData['power']" height="300px"></el-echart>
+        </div>
+        <div class="chart-view">
+          <el-echart :datas="echartData['elec']" height="300px"></el-echart>
         </div>
       </div>
     </dv-border-box-11>
@@ -34,7 +40,9 @@
 </template>
 
 <script>
+import echartData from './echartData'
 export default {
+  mixins: [echartData],
   data () {
     return {
       generDur: 10,
@@ -47,21 +55,21 @@ export default {
         waveHeight: 10
       },
       list: {
-        header: ['列1', '列2', '列3'],
+        header: ['逆变器sn', '模块sn', '设备类型', '发电功率', '今日发电', '累计发电', '并网时间', '设备状态'],
         data: [
-          ['行1列1', '行1列2', '行1列3'],
-          ['行2列1', '行2列2', '行2列3'],
-          ['行3列1', '行3列2', '行3列3'],
-          ['行4列1', '行4列2', '行4列3'],
-          ['行5列1', '行5列2', '行5列3'],
-          ['行6列1', '行6列2', '行6列3'],
-          ['行7列1', '行7列2', '行7列3'],
-          ['行8列1', '行8列2', '行8列3'],
-          ['行9列1', '行9列2', '行9列3'],
-          ['行10列1', '行10列2', '行10列3']
+          ['行1列1', '行1列2', '行1列3', '行1列1', '行1列2', '行1列3', '行1列1', '行1列2'],
+          ['行1列1', '行1列2', '行1列3', '行1列1', '行1列2', '行1列3', '行1列1', '行1列2'],
+          ['行1列1', '行1列2', '行1列3', '行1列1', '行1列2', '行1列3', '行1列1', '行1列2'],
+          ['行1列1', '行1列2', '行1列3', '行1列1', '行1列2', '行1列3', '行1列1', '行1列2'],
+          ['行1列1', '行1列2', '行1列3', '行1列1', '行1列2', '行1列3', '行1列1', '行1列2'],
+          ['行1列1', '行1列2', '行1列3', '行1列1', '行1列2', '行1列3', '行1列1', '行1列2'],
+          ['行1列1', '行1列2', '行1列3', '行1列1', '行1列2', '行1列3', '行1列1', '行1列2'],
+          ['行1列1', '行1列2', '行1列3', '行1列1', '行1列2', '行1列3', '行1列1', '行1列2'],
+          ['行1列1', '行1列2', '行1列3', '行1列1', '行1列2', '行1列3', '行1列1', '行1列2'],
+          ['行1列1', '行1列2', '行1列3', '行1列1', '行1列2', '行1列3', '行1列1', '行1列2']
         ],
         index: true,
-        columnWidth: [50],
+        columnWidth: [],
         align: ['center'],
         carousel: 'page'
       }

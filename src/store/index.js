@@ -1,6 +1,8 @@
 import Vuex from 'vuex'
 export default new Vuex.Store({
-  state: {},
+  state: {
+    lang: 'zh'
+  },
   mutations: {},
   actions: {},
   modules: {}
