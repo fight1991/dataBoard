@@ -144,3 +144,9 @@ export function encodeData (obj) {
 export function decodeData (obj) {
   return JSON.parse(decodeURIComponent(obj))
 }
+export function getUrlBack () {
+  let LoginUrl = process.env.VUE_APP_LOGIN
+  let localUrl = location.origin + location.pathname + location.search
+  let goLogin = `${LoginUrl}?redirect=${localUrl}&sysId=maxScreen`
+  return encodeURIComponent(goLogin)
+}

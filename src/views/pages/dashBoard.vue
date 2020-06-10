@@ -53,9 +53,9 @@
 <script>
 import echartData from './components/echartData'
 import powerStatus from './components/powerStatus'
-import currentPower from '.components/currentPower'
-import deviceStatus from '.components/deviceStatus'
-import todayAbnormal from '.components/todayAbnormal'
+import currentPower from './components/currentPower'
+import deviceStatus from './components/deviceStatus'
+import todayAbnormal from './components/todayAbnormal'
 export default {
   mixins: [echartData],
   components: {

@@ -2,6 +2,7 @@ import router from '@/router'
 import store from '@/store'
 import storage from '@/util/storage'
 import i18n from '@/i18n'
+import { getUrlBack } from '@/util'
 import { Message } from 'element-ui'
 
 /**
@@ -39,16 +40,11 @@ export default {
             tips = false
           }
         })
-        let sysParams = {}
-        if (router.currentRoute.name) { // 说明路由初始化完成,可以拿到当前路由信息
-          sysParams.redirect = router.currentRoute.fullPath
-        } else {
-          sysParams.redirect = location.pathname + location.search
-        }
-        router.replace({
-          path: '/login',
-          query: sysParams
-        })
+        // router.replace({
+        //   path: '/login',
+        //   query: sysParams
+        // })
+        window.open(decodeURIComponent(getUrlBack()), '_self')
       } else { // 其他业务报错
         if (tips) return response.data
         Message.error(i18n.t('errorCode.' + response.data.errno))
