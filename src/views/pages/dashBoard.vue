@@ -2,18 +2,24 @@
   <dv-full-screen-container>
     <dv-border-box-11 title="监控系统">
       <div class="out-container">
-        <div class="main-header flex">
-          <div class="main-left">
-            <power-status/>
+        <div class="left-container">
+          <div class="power-c">
+            <power-status></power-status>
           </div>
-          <div class="main-right">
-            <device-status/>
+          <div class="chart-view">
+            <el-echart :datas="echartData['power']" height="300px"></el-echart>
+          </div>
+          <div class="chart-view">
+            <el-echart :datas="echartData['elec']" height="300px"></el-echart>
           </div>
         </div>
-        <div class="main-container">
-          <div class="chart-power"></div>
-          <div class="chart-ger"></div>
-          <div class="device-list"></div>
+        <div class="right-container">
+          <div class="current-power">
+            <current-power></current-power>
+          </div>
+          <div class="device-status">
+            <device-status></device-status>
+          </div>
         </div>
         <!-- <div class="all-container">
           <div class="tableList">
@@ -34,12 +40,14 @@
 <script>
 import echartData from './echartData'
 import powerStatus from './powerStatus'
+import currentPower from './currentPower'
 import deviceStatus from './deviceStatus'
 export default {
   mixins: [echartData],
   components: {
     powerStatus,
-    deviceStatus
+    deviceStatus,
+    currentPower
   },
   data () {
     return {
@@ -78,14 +86,12 @@ export default {
 <style lang="less" scoped>
 .out-container {
   padding: 80px 20px 20px;
-  .main-header {
-    height: 100px;
-    .main-left {
-      width: 60%;
-    }
-    .main-right {
-      width: 40%;
-    }
+  display: flex;
+  .left-container {
+    flex: 1;
+  }
+  .right-container {
+    width: 300px;
   }
 }
 </style>

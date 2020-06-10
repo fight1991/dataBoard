@@ -6,7 +6,7 @@ import dataV from '@jiaminghi/data-view'
 // import 'element-ui/lib/theme-chalk/display.css'
 // 覆盖样式
 import '@/style/base.less'
-// import '@/style/main.less'
+import '@/style/main.less'
 // 雪碧图
 import '@/style/sprite.less'
 

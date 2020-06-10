@@ -89,7 +89,7 @@ export default {
             color: '#fff'
           },
           legend: {
-            bottom: 10,
+            top: 10,
             data: ['feedin', 'generation', 'loads', 'gridConsumption'],
             formatter: name => {
               return this.$t('chart.' + name)
