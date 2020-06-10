@@ -51,11 +51,11 @@
 </template>
 
 <script>
-import echartData from './echartData'
-import powerStatus from './powerStatus'
-import currentPower from './currentPower'
-import deviceStatus from './deviceStatus'
-import todayAbnormal from './todayAbnormal'
+import echartData from './components/echartData'
+import powerStatus from './components/powerStatus'
+import currentPower from '.components/currentPower'
+import deviceStatus from '.components/deviceStatus'
+import todayAbnormal from '.components/todayAbnormal'
 export default {
   mixins: [echartData],
   components: {
