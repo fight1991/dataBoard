@@ -7,14 +7,18 @@
             <power-status></power-status>
           </div>
           <div class="chart-view">
-            <el-echart :datas="echartData['power']" height="300px"></el-echart>
+            <dv-border-box-6>
+              <el-echart :datas="echartData['power']" height="200px"></el-echart>
+            </dv-border-box-6>
           </div>
           <div class="chart-view">
-            <el-echart :datas="echartData['elec']" height="300px"></el-echart>
+            <dv-border-box-6>
+              <el-echart :datas="echartData['elec']" height="200px"></el-echart>
+            </dv-border-box-6>
           </div>
         </div>
         <div class="right-container">
-          <div class="current-power">
+          <div class="current-power flex-center">
             <current-power></current-power>
           </div>
           <div class="device-status">

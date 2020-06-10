@@ -1,8 +1,15 @@
 <template>
-  <dv-water-level-pond class="power-img" :config="power" style="width:120px;height:120px" />
+  <div>
+    <title3>当前功率</title3>
+    <dv-water-level-pond :config="power" style="width:200px;height:200px;margin:0 auto;" />
+  </div>
 </template>
 <script>
+import title3 from './title-decoration-3'
 export default {
+  components: {
+    title3
+  },
   data () {
     return {
       power: {
@@ -18,8 +25,5 @@ export default {
 }
 </script>
 <style lang="less" scoped>
-.power-img {
-  // border: 10px solid #19c3eb;
-  border-radius: 50%;
-}
+
 </style>
