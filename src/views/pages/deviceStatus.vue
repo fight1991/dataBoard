@@ -38,11 +38,7 @@ export default {
 }
 </script>
 <style lang="less" scoped>
- .unit-label {
-   display: none;
- }
  .device-status {
-   margin: 10px 0;
    padding: 20px 0;
    background-color: rgba(6,30,93,.5);
    border-top: 2px solid rgba(1,153,209,.5);

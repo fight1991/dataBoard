@@ -31,8 +31,8 @@
               <dv-scroll-board :config="list" style="width:auto;height:230px" />
             </div>
           </div>
-          <div class="right-container">
-            <div class="current-power flex-center">
+          <div class="right-container flex-column-between ">
+            <div class="current-power">
               <current-power></current-power>
             </div>
             <div class="device-status">
