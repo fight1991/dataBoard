@@ -1,7 +1,7 @@
 <template>
 <div class="flex">
   <div class="title"><slot></slot></div>
-  <dv-decoration-3 style="width:200px"></dv-decoration-3>
+  <dv-decoration-3 style="width:300px"></dv-decoration-3>
 </div>
 </template>
 <script>
@@ -17,6 +17,7 @@ export default {
 <style lang="less" scoped>
 .flex {
   align-items: center;
+  margin-bottom: 20px;
 }
 .title {
   width: 100px;

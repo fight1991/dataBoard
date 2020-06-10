@@ -45,9 +45,9 @@ export default {
               }
             }
           },
-          grid: {
-            height: '50%'
-          },
+          // grid: {
+          //   height: '50%'
+          // },
           yAxis: {
             type: 'value',
             splitLine: {
@@ -113,9 +113,9 @@ export default {
               }
             }
           },
-          grid: [{
-            height: '55%'
-          }],
+          // grid: [{
+          //   height: '55%'
+          // }],
           yAxis: {
             axisLine: {
               lineStyle: {

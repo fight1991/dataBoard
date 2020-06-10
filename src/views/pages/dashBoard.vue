@@ -2,40 +2,49 @@
   <dv-full-screen-container>
     <dv-border-box-11 title="监控系统">
       <div class="out-container">
-        <div class="left-container">
-          <div class="power-c">
-            <power-status></power-status>
+        <div class="top-container">
+          <div class="left-container">
+            <div class="power-c">
+              <power-status></power-status>
+            </div>
+            <div class="chart-container">
+              <div class="chart-view">
+                <dv-border-box-10>
+                  <div class="title-common">
+                    <div class="title">电站功率</div>
+                    <dv-decoration-1 style="width:150px;height:30px;" />
+                  </div>
+                  <el-echart :datas="echartData['power']" :height="chartH + 'px'"></el-echart>
+                </dv-border-box-10>
+              </div>
+              <div class="chart-view">
+                <dv-border-box-10>
+                  <div class="title-common">
+                    <div class="title">发电量</div>
+                    <dv-decoration-1 style="width:150px;height:30px;" />
+                  </div>
+                  <el-echart :datas="echartData['elec']" :height="chartH + 'px'"></el-echart>
+                </dv-border-box-10>
+              </div>
+            </div>
+            <div class="tableList">
+              <dv-scroll-board :config="list" style="width:auto;height:230px" />
+            </div>
           </div>
-          <div class="chart-view">
-            <dv-border-box-6>
-              <el-echart :datas="echartData['power']" height="200px"></el-echart>
-            </dv-border-box-6>
-          </div>
-          <div class="chart-view">
-            <dv-border-box-6>
-              <el-echart :datas="echartData['elec']" height="200px"></el-echart>
-            </dv-border-box-6>
+          <div class="right-container">
+            <div class="current-power flex-center">
+              <current-power></current-power>
+            </div>
+            <div class="device-status">
+              <device-status></device-status>
+            </div>
+            <div class="today-abnormal">
+              <today-abnormal></today-abnormal>
+            </div>
           </div>
         </div>
-        <div class="right-container">
-          <div class="current-power flex-center">
-            <current-power></current-power>
-          </div>
-          <div class="device-status">
-            <device-status></device-status>
-          </div>
+        <div class="bottom-container">
         </div>
-        <!-- <div class="all-container">
-          <div class="tableList">
-            <dv-scroll-board :config="list" style="width:auto;height:220px" />
-          </div>
-          <div class="chart-view">
-            <el-echart :datas="echartData['power']" height="300px"></el-echart>
-          </div>
-          <div class="chart-view">
-            <el-echart :datas="echartData['elec']" height="300px"></el-echart>
-          </div>
-        </div> -->
       </div>
     </dv-border-box-11>
   </dv-full-screen-container>
@@ -46,16 +55,19 @@ import echartData from './echartData'
 import powerStatus from './powerStatus'
 import currentPower from './currentPower'
 import deviceStatus from './deviceStatus'
+import todayAbnormal from './todayAbnormal'
 export default {
   mixins: [echartData],
   components: {
     powerStatus,
     deviceStatus,
-    currentPower
+    currentPower,
+    todayAbnormal
   },
   data () {
     return {
       generDur: 10,
+      chartH: 260,
       power: {
         data: [30],
         shape: 'round',
@@ -79,9 +91,10 @@ export default {
           ['行1列1', '行1列2', '行1列3', '行1列1', '行1列2', '行1列3', '行1列1', '行1列2']
         ],
         index: true,
-        columnWidth: [],
+        columnWidth: [50],
         align: ['center'],
-        carousel: 'page'
+        carousel: 'page',
+        headerBGC: '#31457C'
       }
     }
   }
@@ -89,13 +102,34 @@ export default {
 </script>
 <style lang="less" scoped>
 .out-container {
-  padding: 80px 20px 20px;
-  display: flex;
+  padding: 60px 20px 20px;
+  .top-container {
+    display: flex;
+  }
   .left-container {
     flex: 1;
   }
   .right-container {
-    width: 300px;
+    width: 400px;
+    margin-left: 10px;
   }
+}
+.chart-container {
+  .chart-view {
+    // width: 50%;
+    margin: 5px 0;
+  }
+}
+.title-common {
+  font-size: 18px;
+  font-weight: bold;
+  height: 40px;
+  padding: 5px 0 10px 20px;
+  .title {
+    margin: 10px 0 5px;
+  }
+}
+.tableList {
+  margin: 10px 0;
 }
 </style>
