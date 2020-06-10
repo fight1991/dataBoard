@@ -1,4 +1,5 @@
 import SparkMD5 from 'spark-md5'
+import Base64 from 'js-base64'
 /**
  * 日期格式化 yyyy-MM-dd HH:mm:ss
  * @param date
@@ -149,4 +150,12 @@ export function getUrlBack () {
   let localUrl = location.origin + location.pathname + location.search
   let goLogin = `${LoginUrl}?redirect=${localUrl}&sysId=maxScreen`
   return encodeURIComponent(goLogin)
+}
+export const base64 = {
+  encode: function (params) {
+    return Base64.Base64.encode(params)
+  },
+  decode: function (params) {
+    return Base64.Base64.decode(params)
+  }
 }
