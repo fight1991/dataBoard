@@ -85,8 +85,8 @@ export default {
         month: 0,
         cumulate: 0,
         earnings: {
-          currency: '',
-          value: ''
+          currency: '-',
+          value: 0
         }
       },
       generDur: 10,

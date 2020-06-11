@@ -10,6 +10,11 @@ export default {
   components: {
     title3
   },
+  props: {
+    deviceStatus: {
+      default: {}
+    }
+  },
   data () {
     return {
       config: {
@@ -17,22 +22,34 @@ export default {
         data: [
           {
             name: '总数',
-            value: 157
+            value: 0
           },
           {
             name: '正常',
-            value: 127
+            value: 0
           },
           {
             name: '故障',
-            value: 123
+            value: 0
           },
           {
             name: '离线',
-            value: 55
+            value: 0
           }
         ]
       }
+    }
+  },
+  watch: {
+    deviceStatus: {
+      handler: function (newData) {
+        if (newData) {
+          Object.values(this.deviceStatus).forEach((v, i) => {
+            this.config.data[i]['value'] = v
+          })
+        }
+      },
+      deep: true
     }
   }
 }

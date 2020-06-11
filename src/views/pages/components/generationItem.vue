@@ -17,17 +17,7 @@
 <script>
 export default {
   data () {
-    return {
-      generDur: 10,
-      power: {
-        data: [30],
-        shape: 'round',
-        formatter: '{value}kw/h',
-        colors: ['green'],
-        waveNum: 6,
-        waveHeight: 10
-      }
-    }
+    return {}
   },
   props: {
     title: {

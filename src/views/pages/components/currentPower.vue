@@ -33,7 +33,6 @@ export default {
   watch: {
     power: function (newData) {
       if (newData && this.capacity) {
-        console.log('哈哈')
         this.powerObj.data = [Math.ceil((this.power / this.capacity) * 100)]
         this.powerObj.formatter = newData + 'kW'
       }

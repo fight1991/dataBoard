@@ -1,5 +1,8 @@
 
   .dv-capsule-chart {
+    .capsule-item {
+      position: relative;
+    }
     .label-column {
       div:last-child {
         display: none;
@@ -10,9 +13,15 @@
         display: none;
       }
     }
-    .capsule-item .capsule-item-column .capsule-item-value {
-      transform: translate(-100%, -100%);
-    }
+    .capsule-item .capsule-item-column {
+      position: static;
+      .capsule-item-value {
+        transform: translate(-100%, -100%);
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
+    } 
   }
   .dv-3 .dv-decoration-3 {
     svg {
