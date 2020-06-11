@@ -1,5 +1,5 @@
 <template>
-  <dv-border-box-13 style="height:100px">
+  <dv-border-box-13 style="width: 100%;height:100px">
     <div class="container flex-column">
       <div class="title-line">
         <div class="title">{{title}}</div>
@@ -44,7 +44,7 @@ export default {
 </script>
 <style lang="less" scoped>
 .dv-border-box-13 {
-  padding: 10px 20px;
+  padding: 10px 0px 10px 20px;
 }
 .container {
   height: 100%;

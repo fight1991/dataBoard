@@ -31,7 +31,7 @@ export default {
 <style lang="less" scoped>
 .plant-status {
   .item {
-    width: 20%;
+    width: 22%;
   }
 }
 </style>

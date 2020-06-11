@@ -1,7 +1,7 @@
 <template>
 <div class="flex">
   <div class="title"><slot></slot></div>
-  <dv-decoration-3 style="width:300px"></dv-decoration-3>
+  <div class="dv-3"><dv-decoration-3></dv-decoration-3></div>
 </div>
 </template>
 <script>
@@ -25,5 +25,8 @@ export default {
   font-size: 18px;
   margin-left:10px;
   font-weight: bold;
+}
+.dv-3 {
+  flex: 1;
 }
 </style>

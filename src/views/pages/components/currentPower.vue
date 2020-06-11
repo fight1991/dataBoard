@@ -1,7 +1,7 @@
 <template>
   <div class="current-power">
     <title3>当前功率</title3>
-    <dv-water-level-pond :config="power" style="width:220px;height:220px;margin:0 auto;" />
+    <dv-water-level-pond :config="powerObj" style="width:220px;height:220px;margin:0 auto;" />
   </div>
 </template>
 <script>
@@ -12,13 +12,30 @@ export default {
   },
   data () {
     return {
-      power: {
-        data: [30],
+      powerObj: {
+        data: [0],
         shape: 'round',
-        formatter: '{value}kw/h',
+        formatter: '0kw',
         colors: ['#1EF3FF', '#fff'],
         waveNum: 6,
         waveHeight: 10
+      }
+    }
+  },
+  props: {
+    power: {
+      default: 0
+    },
+    capacity: {
+      default: 0
+    }
+  },
+  watch: {
+    power: function (newData) {
+      if (newData && this.capacity) {
+        console.log('哈哈')
+        this.powerObj.data = [Math.ceil((this.power / this.capacity) * 100)]
+        this.powerObj.formatter = newData + 'kW'
       }
     }
   }

@@ -1,7 +1,7 @@
 <template>
   <div class="device-status">
     <title3>设备状态</title3>
-    <dv-capsule-chart :config="config" style="width:380px;height:200px" />
+    <dv-capsule-chart :config="config" style="width:100%;height:200px" />
   </div>
 </template>
 <script>
@@ -17,11 +17,11 @@ export default {
         data: [
           {
             name: '总数',
-            value: 167
+            value: 157
           },
           {
             name: '正常',
-            value: 67
+            value: 127
           },
           {
             name: '故障',
